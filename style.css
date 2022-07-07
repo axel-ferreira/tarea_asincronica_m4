@@ -3,10 +3,47 @@ body{
     height: 100vh;
     background-size: 300% 300%;
     background-image: linear-gradient(
-          -45deg, 
-          rgba(59,173,227,1) 0%, 
-          rgba(87,111,230,1) 25%, 
-          rgba(152,68,183,1) 51%, 
+          -90deg, 
+          rgb(139, 153, 60) 0%, 
+          rgb(74, 166, 77) 25%, 
+          rgb(88, 105, 150) 51%, 
+          rgb(167, 77, 110) 100%
+    );  
+    animation: AnimateBG 20s ease infinite;
+  }
+  @keyframes AnimateBG { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+
+    
+  }
+h1{
+    font-family: 'Finlandica', sans-serif;
+    margin: 100px 0px 100px 0px !important;
+    font-weight: 800 !important;
+    font-size: 100px !important;
+}
+.input-div{
+    display: block;
+    text-align: center;
+    justify-content: center;  
+}
+.container{
+    max-width: 520px !important;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+    background-size: 200% 200%;
+    background-image: linear-gradient(
+          -90deg, 
+          rgb(197, 228, 23) 0%, 
+          rgb(23, 229, 30) 25%, 
+          rgb(68, 101, 183) 51%, 
           rgba(255,53,127,1) 100%
     );  
     animation: AnimateBG 20s ease infinite;
@@ -15,21 +52,6 @@ body{
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
-  }
-h1{
-    font-family: 'Finlandica', sans-serif;
-    margin: 100px 0px 100px 0px !important;
-}
-.input-div{
-    display: flex;
-    text-align: center;
-    justify-content: center;  
-}
-.container{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    margin-top: 20px;
 }
 .input-div input{
     width: 450px;
@@ -42,8 +64,8 @@ h1{
     font-size: 18px;
 }
 .boton-agregar{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin: 5px;
     border: none;
     border-radius: 10px !important;
@@ -51,6 +73,27 @@ h1{
    
 }
 .boton-agregar:hover{
-    opacity: 0.9;
+    opacity: 0.7;
+    width: 50px;
+    height: 50px;
 }
+.boton-editar{
+    margin: 0px 10px 0px 40px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+.boton-remover{
+    width: 50px;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+
+}
+.Item{
+    height: 50px;
+   padding-top: 10px;
+}
+
 
