@@ -9,15 +9,14 @@ class Item {
     constructor(nuevaTarea) {
         this.crearDiv(nuevaTarea);
     }
-    
-    crearDiv(tarea) {
-        //creacion del input
+    crearDiv(nuevaTarea) {
+        //CREACION DEL INPUT
         const inputItem = document.createElement('input');
         // atributos del input
         inputItem.setAttribute('disabled', 'true');
         inputItem.setAttribute('type', 'text');
         inputItem.classList.add('item-input');
-        inputItem.value = tarea;
+        inputItem.value = nuevaTarea;
         //Agregando DIV
         const divnuevo = document.createElement('div')
         //Atributo del Div
@@ -25,7 +24,7 @@ class Item {
         divnuevo.appendChild(inputItem);
         container.appendChild(divnuevo);
 
-        //Boton editar
+        //BOTON EDITAR
         const botonEditar = document.createElement('button');
         botonEditar.classList.add('boton-editar');
         botonEditar.innerHTML = '<i class="fa-solid fa-lock"></i>';
@@ -41,7 +40,7 @@ class Item {
                 inputItem.setAttribute('disabled', true )
             }       
         })
-        //Boton remover
+        //BOTON REMOVER
         const botonRemover = document.createElement('button');
         botonRemover.classList.add('boton-remover');
         botonRemover.innerHTML = '<i class="fa-solid fa-trash"></i>';
@@ -53,37 +52,36 @@ class Item {
             divnuevo.removeChild (botonEditar)
         })
     }
+
 }
-//Boton agregar
-agregar.addEventListener('click', function () {
-    if (input.value === ('')) {
-        alert ('debe ingresar una tarea')
-    } else {
-        let x = new Item(input.value)
-        input.value = ''
+
+agregar.addEventListener('click', chequearInput)
+
+//agregar con enter
+input.addEventListener ('keyup', function (event) {
+    if (event.keyCode == 13) {
+        chequearInput()
     }
 })
+//Chequear input
+function chequearInput() {
+    if (input.value.trim() === ('')) {
+    } else {
+        saveTask (input.value)
+        const x = new Item(input.value)
+        input.value = ''
+    }
+}
 
-//local storage
-function saveTask(task){
+function saveTask(task) {
     let localTasks = localStorage.getItem('tareas') || '[]';
     localTasks = JSON.parse(localTasks)
     localTasks.push(task);
-    localTasks =JSON.stringify(localTasks);
+    localTasks = JSON.stringify(localTasks);
     localStorage.setItem('tareas', localTasks)
-
-}
-// aplicar los datos guardados en la pagina
-let array = (localStorage.getItem('tareas'));
-    array = JSON.parse(array)
-
- for(let i = 0; i<array.length; i++){
-    const addTask = new Item(((array[i])))
- }
+  }
+  
 
 
-//  addEventListener('keypress', function (e) {
-//     if (e.key === 'Enter') {
-      
-//     }
-// });
+
+
